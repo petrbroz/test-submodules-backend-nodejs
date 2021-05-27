@@ -37,15 +37,18 @@ Now, you can run and debug your application from the editor using _Run_ > _Start
 ### Heroku Deployment
 
 Heroku does [support git submodules](https://devcenter.heroku.com/articles/git-submodules)
-when using the standard `git push heroku ...` deployment, meaning that if you have
+when using the standard `git push heroku <branch>` deployment, meaning that if you have
 the [Heroku CLI tool](https://devcenter.heroku.com/articles/heroku-cli) installed, you can simply do:
 
 ```bash
 heroku login
 heroku git:remote -a name-of-your-heroku-app
+heroku config:set FORGE_CLIENT_ID=your-client-id
+heroku config:set FORGE_CLIENT_SECRET=your-client-secret
 git push heroku master
 ```
 
 > Note that other deployment options (for example, linking your Heroku app directly to a GitHub repo)
-> will not work. Heroku cannot resolve the git submodules in those cases, so the frontend assets
-> (in the _public_ subfolder) would be missing.
+> will not work. Heroku cannot resolve the git submodules in those cases, so the deployed application
+> would have no frontend assets in the _public_ subfolder. To work around that limitation, you can
+> remove the submodule while keeping the files, as explained [here](https://stackoverflow.com/questions/26752481/remove-git-submodule-but-keep-files).
