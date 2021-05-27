@@ -47,6 +47,7 @@ the [Heroku CLI tool](https://devcenter.heroku.com/articles/heroku-cli) installe
 
 ```bash
 heroku login
+heroku create your-heroku-app
 heroku git:remote -a your-heroku-app
 heroku config:set -a your-heroku-app FORGE_CLIENT_ID=your-client-id
 heroku config:set -a your-heroku-app FORGE_CLIENT_SECRET=your-client-secret
