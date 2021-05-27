@@ -33,3 +33,15 @@ and add your application's client ID and client secret to it:
 If you're using [Visual Studio Code](https://code.visualstudio.com), make a copy the _.env\_template_ file
 in the root folder, name it _.env_, and add your Forge client ID and client secret to it.
 Now, you can run and debug your application from the editor using _Run_ > _Start Debugging_ or by pressing `f5`.
+
+### Heroku Deployment
+
+Heroku does [support git submodules](https://devcenter.heroku.com/articles/git-submodules)
+when using the standard `git push` deployment, meaning that if you have the [Heroku CLI tool](https://devcenter.heroku.com/articles/heroku-cli)
+installed, you can simply do the following:
+
+```bash
+heroku login
+heroku git:remote -a name-of-your-heroku-app
+git push heroku
+```
